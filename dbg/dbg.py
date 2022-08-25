@@ -22,7 +22,14 @@ class binding_box():
             pattern = "(^ATOM.*|^HETATM.*)"    
             for line in lines:
                 if (re.search(pattern, line) != None):
-                    list_of_values.append(line)
+                    test = re.search("^HETATM[\d]+", line)
+                    if (test != None):
+                        new_match = re.match("(^HETATM)([\d]+)", test.group(0))
+                        new_string = new_match.groups()[0] + " " + new_match.groups()[1]
+                        new_line = re.sub("^HETATM[\d]+", new_string, line)
+                        list_of_values.append(new_line)
+                    else:
+                        list_of_values.append(line)
 
         df = pd.DataFrame(list_of_values)
         output = df[0].str.split(expand=True).rename({0: 'TYPE', 1: 'SERIAL_NUM', 2: 'ELEMENT', 3: 'AA', 4: 'CHAIN_ID', 5:'RESIDUE_NUM', 6: 'X_COOR', 7: 'Y_COOR', 8: 'Z_COOR', 9: 'OCCUPANCY', 10: 'TEMP_FACTOR', 11: 'ELEMENT'}, axis=1)
