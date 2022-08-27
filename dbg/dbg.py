@@ -4,15 +4,25 @@ import mdtraj as md
 import nglview
 import numpy as np
 import math
+import os
 
 from IPython.display import display, Image
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
+class DBGException(Exception):
+    pass
+
 class binding_box():
     
     def __init__(self, pdb_id_file):
-        self.pdb_id = pdb_id_file
+        
+        # Sanitize file
+        filename, ext = os.path.splitext(pdb_id_file)
+        if (ext != ".pdb"):
+            raise DBGException("Incorrect file format. Only use PDB files.")
+        else:
+            self.pdb_id = pdb_id_file
     
     def get_ligand_data(self, ligand_code, chain_id):
         list_of_values = []
@@ -22,11 +32,11 @@ class binding_box():
             pattern = "(^ATOM.*|^HETATM.*)"    
             for line in lines:
                 if (re.search(pattern, line) != None):
-                    test = re.search("^HETATM[\d]+", line)
+                    test = re.search(r'^HETATM[\d]+', line)
                     if (test != None):
-                        new_match = re.match("(^HETATM)([\d]+)", test.group(0))
+                        new_match = re.match(r'(^HETATM)([\d]+)', test.group(0))
                         new_string = new_match.groups()[0] + " " + new_match.groups()[1]
-                        new_line = re.sub("^HETATM[\d]+", new_string, line)
+                        new_line = re.sub(r'^HETATM[\d]+', new_string, line)
                         list_of_values.append(new_line)
                     else:
                         list_of_values.append(line)
