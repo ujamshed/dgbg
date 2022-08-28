@@ -126,3 +126,16 @@ def test_get_ligand_data_8():
     num_atoms = ligand_data.shape[0]
     
     assert(all_atoms == num_atoms)
+
+def test_get_ligand_data_9():
+    """
+    Test to extract all ligand data for a specific molecule on a chain
+    """
+    box = dbg.binding_box('../examples/pdb_files/1iep.pdb')
+    # Hydrogens are missing from this pdb file
+    all_atoms = 37
+
+    ligand_data = box.get_ligand_data('STI', 'A')
+    num_atoms = ligand_data.shape[0]
+    
+    assert(all_atoms == num_atoms)
