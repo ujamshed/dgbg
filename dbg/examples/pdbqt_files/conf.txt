@@ -1,0 +1,14 @@
+receptor = pdbqt_files/7uty.pdbqt
+ligand = pdbqt_files/ligand_7uty.pdbqt
+
+center_x = 10.052902
+center_y = -7.492490
+center_z = -2.146725
+
+size_x = 30.000000
+size_y = 31.000000
+size_z = 29.000000
+
+num_modes = 9
+
+exhaustiveness = 10
