@@ -3,7 +3,6 @@ import re
 import mdtraj as md
 import nglview
 import numpy as np
-import math
 import os
 
 from IPython.display import display, Image
@@ -14,9 +13,27 @@ class DBGException(Exception):
     pass
 
 class binding_box():
-    
+    '''
+    Generates the grid box necessary for docking using Autodock Vina.
+
+    Parameters
+    ----------
+    pdb_id_file: string
+                Path to the pdb file under investigation.
+
+    Methods
+    -------
+    get_ligand_data(ligand_code, chain_id)
+    create_box(spacing, padding)
+    show_result(centroid, box_size)
+
+    Raises
+    ------
+    DBGException
+        If a file format other than .pdb is passed during initialization. 
+    '''
+
     def __init__(self, pdb_id_file):
-        
         # Sanitize file
         filename, ext = os.path.splitext(pdb_id_file)
         if (ext != ".pdb"):
@@ -25,6 +42,21 @@ class binding_box():
             self.pdb_id = pdb_id_file
     
     def get_ligand_data(self, ligand_code, chain_id):
+        '''
+        Extracts ligand data from pdb file.
+
+        Parameters
+        ----------
+        ligand_code: string
+                Ligand code identifier found in the pdb file for the ligand of interest.
+        chain_id: string
+                Chain id where the ligand is present in the pdb file.
+
+        Returns
+        -------
+        ligand_data: pandas dataframe
+                    Dataframe containing information on all the atoms of the ligand, including their xyz coordinates.
+        '''
         list_of_values = []
 
         with open(self.pdb_id) as file:
@@ -52,9 +84,24 @@ class binding_box():
         
         return self.output
     
-    def create_box(self, spacing, padding):
-        #add spacing and padding into the function parameters
-        
+    def create_box(self, spacing=0.375, padding=np.array([0, 0, 0])):
+        '''
+        Generates information for the centroid of the ligand and the box size necessary to encompass it.
+
+        Parameters
+        ----------
+        spacing: float
+                Spacing to be used when creating the box size in Angstroms. For reference AutoDock Vina default is 0.375.
+        padding: np.array(int, int, int)
+                Padding to be added to each of the x, y and z coordinates when generating the grid box.
+
+        Returns
+        -------
+        centroid: np.array(float, float, float)
+                Numpy array with the x, y, z coordinates of the centroid of the ligand.
+        box_size: np.array(int, int, int)
+                Numpy array with the number of points in the x, y, z directions.
+        '''
         self.spacing = spacing
         
         min_x = self.output['X_COOR'].min()
@@ -81,7 +128,21 @@ class binding_box():
         return self.centroid, (self.box_size + padding)
     
     def show_result(self, centroid, box_size):
-        
+        '''
+        Creates visual representation of the grid box generated surrounding the ligand of interest in the pdb file.
+
+        Parameters
+        ----------
+        centroid: np.array(float, float, float)
+                Numpy array with the x, y, z coordinates of the centroid of the ligand.
+        box_size: np.array(int, int, int)
+                Numpy array with the number of points in the x, y, z directions.
+
+        Returns
+        -------
+        v1: nglview
+            View of the grid box around the ligand of interest.
+        '''
         
         protein_mdtraj = md.load_pdb(self.pdb_id)
         v1 = nglview.show_mdtraj(protein_mdtraj)
