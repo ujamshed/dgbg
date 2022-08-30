@@ -20,7 +20,7 @@ Python module to automatically generate a grid box around a ligand present in a 
 ![GitHub](https://img.shields.io/github/license/ujamshed/dbg)
 <!-- license -->
 
-## Demo-Preview
+## Results-Preview
 
 ![screenshot](result.gif)
 
@@ -79,7 +79,7 @@ result
 [(Back to top)](#table-of-contents)
 
 1. Git Clone Repository
-```python3  -m venv .venv```
+```git clone git@github.com:ujamshed/dbg.git```
 
 2. Create Virtual Environment
 ```python3  -m venv .venv```
