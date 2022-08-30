@@ -20,7 +20,7 @@ Python module to automatically generate a grid box around a ligand present in a 
 ![GitHub](https://img.shields.io/github/license/ujamshed/dbg)
 <!-- license -->
 
-## Results-Preview
+## Preview
 
 ![screenshot](result.gif)
 
