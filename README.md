@@ -2,9 +2,6 @@
 
 Python module to automatically generate a grid box around a ligand present in a pdb file.
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ujamshed/dbg?include_prereleases)
-<!-- version of the current release. -->
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/ujamshed/dbg)
 <!-- last commit -->
 
@@ -13,9 +10,6 @@ Python module to automatically generate a grid box around a ligand present in a 
 
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/ujamshed/dbg)
 <!--: that tracks pull requests.-->
-
-![GitHub All Releases](https://img.shields.io/github/downloads/ujamshed/dbg/total)
-<!-- number of downloads -->
 
 ![GitHub](https://img.shields.io/github/license/ujamshed/dbg)
 <!-- license -->
@@ -96,7 +90,7 @@ This software uses the following open source packages:
 
 - [NumPy](https://numpy.org/)
 - [Pandas](https://pandas.pydata.org/)
-- [mdtraj](https://www.mdtraj.org/1.9.8.dev0/index.html)
+- [MDTraj](https://www.mdtraj.org/1.9.8.dev0/index.html)
 - [nglview](https://github.com/nglviewer/nglview)
 
 ## License
