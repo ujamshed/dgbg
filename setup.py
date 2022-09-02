@@ -16,11 +16,11 @@ classifiers=[
     'Operating System :: OS Independent'
 ],
 url='',
-author='UsmanJamshed',
+author='Usman Jamshed',
 author_email='jamshedu@berkeley.edu',
 keywords='core package',
 license='MIT',
 packages=['dbg'],
-install_requires=[],
+install_requires=['pandas', 'numpy', 'mdtraj', 'nglview'],
 include_package_data=True,
 zip_safe=False)
