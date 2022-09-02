@@ -7,8 +7,6 @@ import os
 
 from IPython.display import display, Image
 
-pd.options.mode.chained_assignment = None  # default='warn'
-
 class DBGException(Exception):
     pass
 
@@ -77,10 +75,7 @@ class binding_box():
         output = df[0].str.split(expand=True).rename({0: 'TYPE', 1: 'SERIAL_NUM', 2: 'ELEMENT', 3: 'AA', 4: 'CHAIN_ID', 5:'RESIDUE_NUM', 6: 'X_COOR', 7: 'Y_COOR', 8: 'Z_COOR', 9: 'OCCUPANCY', 10: 'TEMP_FACTOR', 11: 'ELEMENT'}, axis=1)
         self.output = output[(output['AA']==ligand_code) & (output['CHAIN_ID']==chain_id)]
         
-        self.output['X_COOR'] = self.output['X_COOR'].apply(pd.to_numeric, errors='coerce')
-        self.output['Y_COOR'] = self.output['Y_COOR'].apply(pd.to_numeric, errors='coerce')
-        self.output['Z_COOR'] = self.output['Z_COOR'].apply(pd.to_numeric, errors='coerce')
-        
+        self.output = self.output.astype({'X_COOR': 'float64', 'Y_COOR': 'float64', 'Z_COOR': 'float64'})
         
         return self.output
     
