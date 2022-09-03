@@ -34,7 +34,7 @@ Python module to automatically generate a grid box around a ligand present in a 
 
 To use this project, pip install the module on your device using the command below:
 
-```pip install dbg```
+```pip install dgbg```
 
 ## Usage
 [(Back to top)](#table-of-contents)
