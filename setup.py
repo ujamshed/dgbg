@@ -4,7 +4,7 @@ def readme():
     with open('README.md') as f:
         return f.read()
 
-setup(name='dbg',
+setup(name='dgbg',
 version='0.0.1',
 description='Docking grid box generator for Autodock4 and Vina',
 long_description=readme(),
@@ -20,7 +20,7 @@ author='Usman Jamshed',
 author_email='jamshedu@berkeley.edu',
 keywords='core package',
 license='MIT',
-packages=['dbg'],
+packages=['dgbg'],
 install_requires=['pandas', 'numpy', 'mdtraj', 'nglview'],
 include_package_data=True,
 zip_safe=False)

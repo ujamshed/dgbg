@@ -7,7 +7,7 @@ import os
 
 from IPython.display import display, Image
 
-class DBGException(Exception):
+class DGBGException(Exception):
     pass
 
 class binding_box():
@@ -35,7 +35,7 @@ class binding_box():
         # Sanitize file
         filename, ext = os.path.splitext(pdb_id_file)
         if (ext != ".pdb"):
-            raise DBGException("Incorrect file format. Only use PDB files.")
+            raise DGBGException("Incorrect file format. Only use PDB files.")
         else:
             self.pdb_id = pdb_id_file
     

@@ -1,4 +1,4 @@
-# DBG
+# Docking Grid Box Generator (DGBG)
 
 Python module to automatically generate a grid box around a ligand present in a pdb file.
 
