@@ -2,18 +2,6 @@
 
 Python module to automatically generate a grid box around a ligand present in a pdb file.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/ujamshed/dbg)
-<!-- last commit -->
-
-![GitHub issues](https://img.shields.io/github/issues-raw/ujamshed/dbg)
-<!-- tracks issues in  project and gets updated automatically -->
-
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ujamshed/dbg)
-<!--: that tracks pull requests.-->
-
-![GitHub](https://img.shields.io/github/license/ujamshed/dbg)
-<!-- license -->
-
 ## Preview
 
 ![screenshot](result.gif)
