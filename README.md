@@ -73,7 +73,7 @@ result
 [(Back to top)](#table-of-contents)
 
 1. Git Clone Repository
-```git clone git@github.com:ujamshed/dbg.git```
+```git clone git@github.com:ujamshed/dgbg.git```
 
 2. Create Virtual Environment
 ```python3  -m venv .venv```
