@@ -4,7 +4,7 @@ with open('README.md') as f:
     long_description= f.read()
 
 setup(name='dgbg',
-version='0.0.1',
+version='0.0.2',
 description='Docking grid box generator for Autodock4 and Vina',
 long_description=long_description,
 long_description_content_type= 'text/markdown',
@@ -23,4 +23,4 @@ packages=['dgbg'],
 install_requires=['pandas', 'numpy', 'mdtraj', 'nglview'],
 include_package_data=True,
 zip_safe=False,
-download_url="https://github.com/ujamshed/dgbg/archive/refs/tags/0.0.1.tar.gz")
+download_url="https://github.com/ujamshed/dgbg/archive/refs/tags/0.0.2.tar.gz")
