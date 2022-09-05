@@ -28,9 +28,9 @@ To use this project, pip install the module on your device using the command bel
 [(Back to top)](#table-of-contents)
 
 ```python
-from dbg import dbg
+from dgbg import dgbg
 
-box = dbg.binding_box('ex_file_path.pdb')
+box = dgbg.binding_box('ex_file_path.pdb')
 
 ligand_data = box.get_ligand_data('ligand_ID', 'chain_ID')
 
