@@ -2,18 +2,6 @@
 
 Python module to automatically generate a grid box around a ligand present in a pdb file.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/ujamshed/dbg)
-<!-- last commit -->
-
-![GitHub issues](https://img.shields.io/github/issues-raw/ujamshed/dbg)
-<!-- tracks issues in  project and gets updated automatically -->
-
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ujamshed/dbg)
-<!--: that tracks pull requests.-->
-
-![GitHub](https://img.shields.io/github/license/ujamshed/dbg)
-<!-- license -->
-
 ## Preview
 
 ![screenshot](result.gif)
@@ -34,7 +22,7 @@ Python module to automatically generate a grid box around a ligand present in a 
 
 To use this project, pip install the module on your device using the command below:
 
-```pip install dbg```
+```pip install dgbg```
 
 ## Usage
 [(Back to top)](#table-of-contents)
@@ -73,7 +61,7 @@ result
 [(Back to top)](#table-of-contents)
 
 1. Git Clone Repository
-```git clone git@github.com:ujamshed/dbg.git```
+```git clone git@github.com:ujamshed/dgbg.git```
 
 2. Create Virtual Environment
 ```python3  -m venv .venv```
